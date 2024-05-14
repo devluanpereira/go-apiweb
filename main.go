@@ -2,6 +2,7 @@ package main
 
 import (
 	"apigo/database"
+	"apigo/users"
 	"fmt"
 )
 
@@ -10,5 +11,6 @@ func init() {
 }
 
 func main() {
+	users.Migrate()
 	fmt.Println("Entry point")
 }

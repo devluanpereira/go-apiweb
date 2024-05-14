@@ -2,14 +2,13 @@ package database
 
 import (
 	"fmt"
-
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
 
 type Database struct {
 	Path string
-	DB   *gorm.DB
+	DB* gorm.DB
 }
 
 var RootDatabase Database
