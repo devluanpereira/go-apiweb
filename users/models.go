@@ -37,3 +37,19 @@ func (u UserModel) GetAll() []UserModel {
 
 	return userModels
 }
+
+func (u UserModel) NameExists() bool {
+	var tempUser UserModel
+	result := database.RootDatabase.DB.Where("nome=?", u.Nome).First(&tempUser)
+
+	if result.Error != nil {
+		if result.Error == gorm.ErrRecordNotFound {
+			return false
+		}
+
+		// @TODO:
+		panic(result.Error.Error())
+	}
+
+	return true
+}

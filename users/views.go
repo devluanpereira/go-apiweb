@@ -1,6 +1,7 @@
 package users
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -15,13 +16,25 @@ func MakeUserHandle() UserHandler {
 }
 
 func (u *UserHandler) SignUpHandler(c *gin.Context) {
-	err := c.BindJSON(&u.model)
+	fmt.Print(u.model)
+	err := c.BindJSON(u.model)
 
 	if err != nil {
 		c.JSON(
 			http.StatusBadRequest, gin.H{
 				"status":  "Failed",
 				"message": err.Error(),
+			},
+		)
+
+		return
+	}
+
+	if u.model.NameExists() {
+		c.JSON(
+			http.StatusBadRequest, gin.H{
+				"status":  "Failed",
+				"message": "Erro, este usuario ja existe...",
 			},
 		)
 
