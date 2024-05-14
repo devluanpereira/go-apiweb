@@ -27,5 +27,13 @@ func (u *UserModel) Save() error {
 	if result.Error != nil {
 		return result.Error
 	}
+
 	return nil
+}
+
+func (u UserModel) GetAll() []UserModel {
+	userModels := []UserModel{}
+	database.RootDatabase.DB.Find(&userModels)
+
+	return userModels
 }
