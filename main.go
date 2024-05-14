@@ -3,7 +3,8 @@ package main
 import (
 	"apigo/database"
 	"apigo/users"
-	"fmt"
+
+	"github.com/gin-gonic/gin"
 )
 
 func init() {
@@ -11,6 +12,9 @@ func init() {
 }
 
 func main() {
-	users.Migrate()
-	fmt.Println("Entry point")
+	userHandler := users.MakeUserHandle()
+
+	router := gin.Default()
+	router.POST("/users/signup", userHandler.SignUpHandler)
+	router.Run()
 }
