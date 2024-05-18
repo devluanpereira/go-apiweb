@@ -64,7 +64,7 @@ func (u *UserHandler) SignUpHandler(c *gin.Context) {
 
 func (u *UserHandler) GetUsersHandler(c *gin.Context) {
 	c.JSON(
-		http.StatusBadRequest, gin.H{
+		http.StatusOK, gin.H{
 			"users": u.model.GetAll(),
 		},
 	)
