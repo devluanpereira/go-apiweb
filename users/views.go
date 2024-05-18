@@ -1,7 +1,6 @@
 package users
 
 import (
-	"fmt"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -16,7 +15,6 @@ func MakeUserHandle() UserHandler {
 }
 
 func (u *UserHandler) SignUpHandler(c *gin.Context) {
-	fmt.Print(u.model)
 	err := c.BindJSON(&u.model)
 
 	if err != nil {
@@ -71,7 +69,6 @@ func (u *UserHandler) GetUsersHandler(c *gin.Context) {
 }
 
 func (u *UserHandler) LoginHandler(c *gin.Context) {
-	fmt.Print(u.model)
 	err := c.BindJSON(&u.model)
 
 	if err != nil {

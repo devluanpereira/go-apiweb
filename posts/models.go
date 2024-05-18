@@ -14,7 +14,7 @@ type PostModel struct {
 	Like    int    `json:"like"`
 	Dislike string `json:"dislike"`
 
-	UserID int `json:"user"`
+	UserId int `json:"user"`
 }
 
 func MakePostModel() PostModel {

@@ -69,3 +69,19 @@ func (u UserModel) Exists() bool {
 
 	return true
 }
+
+func (u UserModel) FindByID(id int) (UserModel, bool) {
+	var userModel UserModel
+	result := database.RootDatabase.DB.Find(&userModel, id)
+
+	if result.Error != nil {
+		if result.Error == gorm.ErrRecordNotFound {
+			return userModel, false
+		}
+
+		// @TODO:
+		panic(result.Error.Error())
+	}
+
+	return userModel, true
+}
