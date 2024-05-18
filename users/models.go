@@ -53,3 +53,19 @@ func (u UserModel) NameExists() bool {
 
 	return true
 }
+
+func (u UserModel) Exists() bool {
+	var tempUser UserModel
+	result := database.RootDatabase.DB.Where("nome=? AND senha=?", u.Nome, u.Senha).First(&tempUser)
+
+	if result.Error != nil {
+		if result.Error == gorm.ErrRecordNotFound {
+			return false
+		}
+
+		// @TODO:
+		panic(result.Error.Error())
+	}
+
+	return true
+}
