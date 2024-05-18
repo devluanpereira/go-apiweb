@@ -25,3 +25,13 @@ func (p *PostModel) Migrate() {
 	database.RootDatabase.DB.AutoMigrate(&PostModel{})
 	fmt.Println("Migrando Posts...")
 }
+
+func (p *PostModel) Save() error {
+	result := database.RootDatabase.DB.Create(p)
+
+	if result.Error != nil {
+		return result.Error
+	}
+
+	return nil
+}
