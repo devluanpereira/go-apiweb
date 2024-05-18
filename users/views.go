@@ -17,7 +17,7 @@ func MakeUserHandle() UserHandler {
 
 func (u *UserHandler) SignUpHandler(c *gin.Context) {
 	fmt.Print(u.model)
-	err := c.BindJSON(u.model)
+	err := c.BindJSON(&u.model)
 
 	if err != nil {
 		c.JSON(
@@ -42,7 +42,6 @@ func (u *UserHandler) SignUpHandler(c *gin.Context) {
 	}
 
 	err = u.model.Save()
-
 	if err != nil {
 		c.JSON(
 			http.StatusBadRequest, gin.H{
