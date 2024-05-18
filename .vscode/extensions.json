@@ -1,0 +1,25 @@
+{
+  "recommendations": [
+    "drcika.apc-extension",
+    "daltonmenezes.aura-theme",
+    "aaron-bond.better-comments",
+    "formulahendry.code-runner",
+    "editorconfig.editorconfig",
+    "usernamehw.errorlens",
+    "dbaeumer.vscode-eslint",
+    "github.vscode-github-actions",
+    "github.vscode-pull-request-github",
+    "golang.go",
+    "quillaja.goasm",
+    "bierner.markdown-preview-github-styles",
+    "equinusocio.moxer-icons",
+    "equinusocio.moxer-theme",
+    "christian-kohler.path-intellisense",
+    "ms-ceintl.vscode-language-pack-pt-br",
+    "esbenp.prettier-vscode",
+    "yoavbls.pretty-ts-errors",
+    "rangav.vscode-thunder-client",
+    "amodio.toggle-excluded-files",
+    "wangweixuan.yithemes"
+  ]
+}
