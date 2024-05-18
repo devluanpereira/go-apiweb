@@ -2,6 +2,8 @@ package posts
 
 import "github.com/gin-gonic/gin"
 
+// OLA MUNDO
+
 type PostHandler struct {
 	model PostModel
 }
