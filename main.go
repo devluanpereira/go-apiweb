@@ -17,10 +17,10 @@ func main() {
 	postHandler := posts.MakePostHandler()
 
 	router := gin.Default()
+	router.POST("/posts/create", postHandler.CreatePostHandler)
 	router.POST("/users/signup", userHandler.SignUpHandler)
 	router.POST("/users/login", userHandler.LoginHandler)
 	router.GET("/users/", userHandler.GetUsersHandler)
-	router.POST("/posts/create", postHandler.CreatePostHandler)
 
 	router.Run()
 }
