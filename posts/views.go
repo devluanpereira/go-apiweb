@@ -16,7 +16,7 @@ func MakePostHandler() PostHandler {
 }
 
 func (p *PostHandler) CreatePostHandler(c *gin.Context) {
-	err := c.BindJSON(p.model)
+	err := c.BindJSON(&p.model)
 
 	if err != nil {
 		c.JSON(
@@ -34,7 +34,7 @@ func (p *PostHandler) CreatePostHandler(c *gin.Context) {
 
 	_, found := userModel.FindByID(userId)
 
-	if found == false {
+	if found == !found {
 		c.JSON(
 			http.StatusBadRequest, gin.H{
 				"status":  "Failed",

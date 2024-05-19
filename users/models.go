@@ -72,7 +72,7 @@ func (u UserModel) Exists() bool {
 
 func (u UserModel) FindByID(id int) (UserModel, bool) {
 	var userModel UserModel
-	result := database.RootDatabase.DB.Find(&userModel, id)
+	result := database.RootDatabase.DB.First(&userModel, id)
 
 	if result.Error != nil {
 		if result.Error == gorm.ErrRecordNotFound {
