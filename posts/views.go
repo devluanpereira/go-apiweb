@@ -8,7 +8,9 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-type PostHandler struct{}
+type PostHandler struct {
+	model PostModel
+}
 
 func MakePostHandler() PostHandler {
 	return PostHandler{}
@@ -77,4 +79,14 @@ func (p *PostHandler) CreatePostHandler(c *gin.Context) {
 // isUniqueConstraintError verifica se um erro é uma violação de restrição única
 func isUniqueConstraintError(err error) bool {
 	return strings.Contains(err.Error(), "UNIQUE constraint failed")
+}
+
+func (p *PostHandler) GetPostsHandler(c *gin.Context) {
+	posts := p.model.GetAll()
+
+	c.JSON(
+		http.StatusOK, gin.H{
+			"posts": posts,
+		},
+	)
 }

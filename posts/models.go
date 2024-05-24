@@ -35,3 +35,10 @@ func (p *PostModel) Save() error {
 
 	return nil
 }
+
+func (p *PostModel) GetAll() []PostModel {
+	posts := []PostModel{}
+	database.RootDatabase.DB.Find(&posts)
+
+	return posts
+}
