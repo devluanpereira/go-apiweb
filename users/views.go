@@ -30,7 +30,7 @@ func (u *UserHandler) SignUpHandler(c *gin.Context) {
 
 	if u.model.NameExists() {
 		c.JSON(
-			http.StatusBadRequest, gin.H{
+			http.StatusForbidden, gin.H{
 				"status":  "Failed",
 				"message": "Erro, este usuario ja existe...",
 			},
@@ -52,7 +52,7 @@ func (u *UserHandler) SignUpHandler(c *gin.Context) {
 	}
 
 	c.JSON(
-		http.StatusBadRequest, gin.H{
+		http.StatusOK, gin.H{
 			"status":  "Sucesso",
 			"message": "Usuarios criado...",
 		},
